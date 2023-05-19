@@ -19,9 +19,3 @@ void ValoresCubo(Cubo *cubo){
     printf("Area Total: %d\n", (2*((cubo->aresta1)*(cubo->aresta2))+2*((cubo->aresta1)*(cubo->aresta3))+2*((cubo->aresta2)*(cubo->aresta3))));
 
 }   
-
-int main(){
-    Cubo *cubo = (Cubo *) malloc(sizeof(cubo));
-    PreencherDadosCubo(cubo);
-    ValoresCubo(cubo);
-}
