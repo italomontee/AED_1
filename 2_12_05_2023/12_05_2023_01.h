@@ -1,23 +1,13 @@
 #include <stdio.h>
 
-typedef struct Cubo
+typedef struct 
 {
     int aresta1;
     int aresta2;
     int aresta3;
 }Cubo;
 
-void PreencherDadosCubo(Cubo *cubo){
-    printf("ARESTA 1: ");
-    scanf("%d", &(cubo->aresta1));
-    printf("ARESTA 2: ");
-    scanf("%d", &(cubo->aresta2));
-    printf("ARESTA 3: ");
-    scanf("%d", &(cubo->aresta3));
-}
+void PreencherDadosCubo(Cubo *cubo);
+void ValoresCubo(Cubo *cubo);
 
-void ValoresCubo(Cubo *cubo){
-    printf("Volume: %d\n", ((cubo->aresta1)*(cubo->aresta2)*(cubo->aresta3)));
-    printf("Area Total: %d\n", (2*((cubo->aresta1)*(cubo->aresta2))+2*((cubo->aresta1)*(cubo->aresta3))+2*((cubo->aresta2)*(cubo->aresta3))));
 
-}   
