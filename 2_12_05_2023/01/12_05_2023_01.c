@@ -20,8 +20,3 @@ void ValoresCubo(Cubo *cubo){
 
 }   
 
-int main(){
-    Cubo *cubo = (Cubo *) malloc(sizeof(cubo));
-    PreencherDadosCubo(cubo);
-    ValoresCubo(cubo);
-}
