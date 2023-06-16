@@ -65,7 +65,7 @@ int BuscarSequencial(ListaInteira* m, int num)
     return -1;
 }
 
-BuscaBinaria(ListaInteira* m, int num){
+int BuscaBinaria(ListaInteira* m, int num){
    Elemento* inicio = m->inicio;
     int esquerda = 0;
     int direita = Tamanho(m) - 1;
