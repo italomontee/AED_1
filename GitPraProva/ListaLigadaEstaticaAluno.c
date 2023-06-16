@@ -98,15 +98,14 @@ int InserirElementoOrdenado(ListaInteira *m, Aluno novoalun){
     while (i != -1 && m->ListadeAlun[i].alun.matricula < novoalun.matricula) {
         pos_inserir = i;
         i = m->ListadeAlun[i].proximo;
+        // caso o aluno já esteja na lista (2° exc)
+        if ( m->ListadeAlun[i].alun.matricula == novoalun.matricula)
+        {
+            return 0;
+        }
     }
 
-    // caso o aluno já esteja na lista (2° exc)
-    if (i != -1 && m->ListadeAlun[i].alun.matricula == novoalun.matricula)
-    {
-        return 0;
-    }
     
-
     //inserir o elemento
     i = ObterNo(m);
     m->ListadeAlun[i].alun = novoalun;
