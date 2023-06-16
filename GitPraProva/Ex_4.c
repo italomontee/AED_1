@@ -85,11 +85,8 @@ int RetornarMaiorIdade(ListaInteira* m){
         t++;
     }
 
-    if (pos_maior != -1) {
-        ExcluirElemento(m, m->ListadeAlun[pos_maior].alun.matricula);
-    }
 
-    return maior;
+    return pos_maior;
 }
 
 
@@ -133,8 +130,8 @@ int main(){
     Aluno.ListadeAlun[3].alun.nfilhos = 0;
     Aluno.ListadeAlun[4].alun.nfilhos = 1;
     int m = RetornarMaiorIdade(&Aluno);
-    printf("O maior elemento e: %d\n", m);
-    printf("A nova lista e: \n");
+    printf("O maior elemento e o : %d\n\n", m);
+    
     ExibirLista(&Aluno);
     
 
