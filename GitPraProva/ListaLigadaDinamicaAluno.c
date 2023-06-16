@@ -107,15 +107,17 @@ void InserirElemento(ListaInteira*m, Aluno alun){
 
     while (i != NULL && m->inicio->alun.matricula<alun.matricula)
     {
+        //exc: igualdade
+        if (i->alun.matricula == alun.matricula)
+        {
+            return;
+        }
         pos_inserir = i;
-        i = i->proximo;            
+        i = i->proximo;    
+        
     }
 
-    //exc: igualdade
-    if (i != NULL && i->alun.matricula == alun.matricula)
-    {
-        return;
-    }
+    
 
     i = malloc (sizeof(Elemento));
     i->alun = alun;
