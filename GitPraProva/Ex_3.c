@@ -73,6 +73,7 @@ int RetornarMaior(ListaLigada* m){
         t++;
     }
     
+    ExcluirElemento(m, maior);
 
     return maior;
 
@@ -100,7 +101,6 @@ int main(){
     int m = RetornarMaior(&Aluno);
     printf("O maior elemento e: %d\n", m);
     printf("A nova lista e: \n", m);
-    ExcluirElemento(&Aluno, m);
     ExibirLista(&Aluno);
     
 
