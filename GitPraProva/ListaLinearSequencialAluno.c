@@ -35,6 +35,15 @@ printf("Insira a idade do aluno: ");
 scanf("%d", &novo.idade);
 printf("Insira o numero de filhos: ");
 scanf("%d", &novo.nfilhos);
+
+// Verificar se o código do aluno já existe
+    for (int i = 0; i < lista->quantidade; i++) {
+        if (lista->lista[i].codigo == novo.codigo) {
+            printf("\nErro: Aluno com código %d já existe na lista.\n", novo.codigo);
+            return;
+        }
+    }
+    
 if(lista->quantidade == 0){
     lista->lista[0] = novo;
 
