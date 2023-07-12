@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1689178908 source:c:\users\monte\documents\italo\uea\aed\8_07_07_2023_1\01\main.c
+	<stdio.h>
+	<stdlib.h>
+	"hash.h"
+
+1689177922 c:\users\monte\documents\italo\uea\aed\8_07_07_2023_1\01\hash.h
+
+1689178055 source:c:\users\monte\documents\italo\uea\aed\8_07_07_2023_1\01\hash.c
+	<stdio.h>
+	<stdlib.h>
+	"hash.h"
+
