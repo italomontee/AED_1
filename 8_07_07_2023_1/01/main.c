@@ -3,20 +3,25 @@
 #include "hash.h"
 int main()
 {
+
     TabelaHash TABELA;
-    inicializarHash(TABELA);
+    inicializarHash(&TABELA);
 
     PESSOA p;
-    p.codigo = 0;
+    p.codigo = 10;
     p.cpf =123;
     p.idade=15;
-    p.nome = 'k';
-    //INSERINDO
-    TABELA.tabela[0] = malloc(sizeof(PESSOA));
-    *(TABELA.tabela[0])= p;
+    p.nome = "kaua";
+    inserir(&TABELA, p);
 
-    printf("nome: %d", p.codigo);
-    //USANDO FUNÇÕES
-    mostrarHash(TABELA);
+    p.codigo = 13;
+    p.cpf =133;
+    p.idade=18;
+    p.nome = "joao";
+    inserir(&TABELA, p);
+
+    printf("\n");
+    mostrarHash(&TABELA);
+
     return 0;
 }
