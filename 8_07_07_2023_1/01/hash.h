@@ -15,9 +15,9 @@ typedef struct {
 } TabelaHash;
 
 int m_hasg (int cod_pess);
-int inserir (TabelaHash tab, PESSOA pess);
-void inicializarHash(TabelaHash tab);
-void mostrarHash (TabelaHash tab);
+int inserir (TabelaHash* tab, PESSOA pess);
+void inicializarHash(TabelaHash* tab);
+void mostrarHash (TabelaHash* tab);
 PESSOA * busca(TabelaHash tab, int cod);
 
 
