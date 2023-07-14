@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1689350595 source:c:\users\monte\documents\italo\uea\aed\gitperfeito2\5hashencadseparado\hash_encad_inteiro\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Hash_Encad_Inteiro.h"
+
+1689350625 c:\users\monte\documents\italo\uea\aed\gitperfeito2\5hashencadseparado\hash_encad_inteiro\hash_encad_inteiro.h
+
+1689329608 source:c:\users\monte\documents\italo\uea\aed\gitperfeito2\5hashencadseparado\hash_encad_inteiro\hash_encad_inteiro.c
+	<stdio.h>
+	<stdlib.h>
+	"Hash_Encad_Inteiro.h"
+
+1689351067 source:c:\users\monte\documents\italo\uea\aed\gitperfeito2\5hashencadseparado\hash_encad_inteiro\geral.c
+
