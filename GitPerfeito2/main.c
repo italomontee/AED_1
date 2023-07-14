@@ -1,66 +1,51 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
+#include "dequee.h"
 
-#define M 11
+int main()
+{
+    time_t now;
 
-typedef struct elemento {
-    int chave;
-    struct elemento* proximo;
-} Elemento;
+    time(&now);
 
-void inicializarTabela(Elemento** tabela) {
-    for (int i = 0; i < M; i++) {
-        tabela[i] = NULL;
-    }
-}
+    printf("Data e hora de entrega %s\n", ctime(&now));
+    printf("Italo Guilherme Monte\n");
+    printf("Numero do exercicio: 005\n\n");
 
-int hash(int chave) {
-    return (2 * chave + 5) % M;
-}
 
-void inserir(Elemento** tabela, int chave) {
-    int posicao = hash(chave);
+    DEQUE deque1;
+    DEQUE deque2;
 
-    Elemento* novo_elemento = malloc(sizeof(Elemento));
-    novo_elemento->chave = chave;
-    novo_elemento->proximo = NULL;
+    InicializaDeque(&deque1);
+    InicializaDeque(&deque2);
 
-    if (tabela[posicao] == NULL) {
-        tabela[posicao] = novo_elemento;
-    } else {
-        Elemento* elemento_atual = tabela[posicao];
-        while (elemento_atual->proximo != NULL) {
-            elemento_atual = elemento_atual->proximo;
-        }
-        elemento_atual->proximo = novo_elemento;
-    }
-}
+    InserirInicio(&deque1, 1);
+    InserirFim(&deque1, 3);
+    InserirFim(&deque1, 5);
+    InserirFim(&deque1, 7);
 
-void mostrarTabela(Elemento** tabela) {
-    printf("Tabela Hash:\n");
-    for (int i = 0; i < M; i++) {
-        printf("Posição %d: ", i);
-        Elemento* elemento_atual = tabela[i];
-        while (elemento_atual != NULL) {
-            printf("%d ", elemento_atual->chave);
-            elemento_atual = elemento_atual->proximo;
-        }
-        printf("\n");
-    }
-}
 
-int main() {
-    Elemento* tabela[M];
-    inicializarTabela(tabela);
+    InserirInicio(&deque2, 2);
+    InserirFim(&deque2, 4);
+    InserirFim(&deque2, 6);
+    InserirFim(&deque2, 8);
 
-    int chaves[] = {12, 44, 13, 88, 23, 94, 11, 39, 20, 16, 5};
-    int num_chaves = sizeof(chaves) / sizeof(chaves[0]);
+    printf("DEQUE 1: \n");
+    MostrarDeque(&deque1);
 
-    for (int i = 0; i < num_chaves; i++) {
-        inserir(tabela, chaves[i]);
-    }
+    //printf("Tamanho deque1: %d\n", TamanhoDeque(&deque1));
 
-    mostrarTabela(tabela);
+    printf("\nDEQUE 2: \n");
+    MostrarDeque(&deque2);
+
+    DEQUE deque3;
+    InicializaDeque(&deque3);
+
+    InserirIntercalado(&deque3, &deque1, &deque2);
+
+    printf("\nDEQUE 3: \n");
+    MostrarDeque(&deque3);
 
     return 0;
 }
