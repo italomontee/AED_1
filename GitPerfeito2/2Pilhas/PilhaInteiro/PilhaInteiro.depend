@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1689353304 source:c:\users\monte\documents\italo\uea\aed\gitperfeito2\2pilhas\pilhainteiro\pilhainteiro.c
+	<stdio.h>
+	<stdlib.h>
+	"PilhaInteiro.h"
+
+1689353269 c:\users\monte\documents\italo\uea\aed\gitperfeito2\2pilhas\pilhainteiro\pilhainteiro.h
+
+1689353328 source:c:\users\monte\documents\italo\uea\aed\gitperfeito2\2pilhas\pilhainteiro\main.c
+	<stdio.h>
+	<stdlib.h>
+	"PilhaInteiro.h"
+
