@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1689352037 source:c:\users\monte\documents\italo\uea\aed\gitperfeito2\4hashsimples\hash_simples_registro\hash_simples_registro.c
+	<stdio.h>
+	<stdlib.h>
+	"Hash_Simples_Registro.h"
+
+1689351979 c:\users\monte\documents\italo\uea\aed\gitperfeito2\4hashsimples\hash_simples_registro\hash_simples_registro.h
+
