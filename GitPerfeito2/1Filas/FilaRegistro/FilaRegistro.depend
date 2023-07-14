@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1689352440 source:c:\users\monte\documents\italo\uea\aed\gitperfeito2\1filas\filaregistro\filaregistro.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"FilaRegistro.h"
+
+1689352487 c:\users\monte\documents\italo\uea\aed\gitperfeito2\1filas\filaregistro\filaregistro.h
+
