@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1689353795 source:c:\users\monte\documents\italo\uea\aed\gitperfeito2\3deques\dequeregistro\main.c
+	<stdio.h>
+	<stdlib.h>
+	"DequeRegistro.h"
+
+1689353760 c:\users\monte\documents\italo\uea\aed\gitperfeito2\3deques\dequeregistro\dequeregistro.h
+
+1689353700 source:c:\users\monte\documents\italo\uea\aed\gitperfeito2\3deques\dequeregistro\dequeregistro.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"DequeRegistro.h"
+
