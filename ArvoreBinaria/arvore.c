@@ -49,8 +49,21 @@ int Inserir(ArvoreB * arv, int num){
 void imprimirArvore(Elemento *raiz) {
     if (raiz != NULL) {
         imprimirArvore(raiz->esquerda);
+
         printf("%d ", raiz->num);
         imprimirArvore(raiz->direita);
     }
 }
+
+int count = 0;
+void Contador(Elemento *raiz) {
+
+    if (raiz != NULL) {
+        Contador(raiz->esquerda);
+        Contador(raiz->direita);
+        count++;
+    }
+
+}
+
 

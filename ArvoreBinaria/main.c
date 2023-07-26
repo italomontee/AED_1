@@ -13,6 +13,8 @@ int main()
     Inserir(&arvore, 4);
 
     imprimirArvore(arvore.raiz);
+    int c = Contador(arvore.raiz);
+    printf("\nN de elementos: %d", c);
 
     return 0;
 }
