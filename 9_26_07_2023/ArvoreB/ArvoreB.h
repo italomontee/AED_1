@@ -17,6 +17,9 @@ int Inserir(ArvoreB * arv, int num);
 void imprimirArvorePre(Elemento *raiz);
 void imprimirArvoreIn(Elemento *raiz);
 void imprimirArvorePos(Elemento *raiz);
+int Contador(Elemento *raiz);
+int Busca(Elemento *raiz, int num);
+
 
 
 #endif // ARVOREB_H_INCLUDED

@@ -46,6 +46,21 @@ int Inserir(ArvoreB * arv, int num){
 
     }
 
+int Busca(Elemento *raiz, int num){
+    if (raiz == NULL){
+        return NULL;
+    }
+    if (raiz->num == num){
+        return raiz;
+    }
+    if (num > raiz->num){
+        return  (Busca(raiz->direita, num));
+    }
+    else{
+        return (Busca(raiz->esquerda, num));
+    }
+}
+
 void imprimirArvorePre(Elemento *raiz) {
     if (raiz != NULL) {
         printf("%d ", raiz->num);
@@ -73,7 +88,7 @@ void imprimirArvorePos(Elemento *raiz) {
 }
 
 int count = 0;
-void Contador(Elemento *raiz) {
+int Contador(Elemento *raiz) {
 
     if (raiz != NULL) {
         Contador(raiz->esquerda);
@@ -82,3 +97,5 @@ void Contador(Elemento *raiz) {
     }
 
 }
+
+
