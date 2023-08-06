@@ -2,7 +2,7 @@
 #define ARVOREB_H_INCLUDED
 
 typedef struct aux {
-    int num;
+    char crc;
     struct aux * direita;
     struct aux * esquerda;
 } Elemento;
@@ -12,12 +12,12 @@ typedef struct {
 }ArvoreB;
 
 void Inicializar(ArvoreB * arv);
-int Inserir(ArvoreB * arv, int num);
+int Inserirr(Elemento ** raiz, char crct);
 void imprimirArvorePre(Elemento *raiz);
 void imprimirArvoreIn(Elemento *raiz);
 void imprimirArvorePos(Elemento *raiz);
-int Contador(Elemento *raiz);
-int Busca(Elemento *raiz, int num);
+
+
 
 
 

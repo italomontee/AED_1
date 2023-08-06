@@ -8,65 +8,31 @@ void Inicializar(ArvoreB * arv){
     arv->raiz = NULL;
 }
 
-int Inserir(ArvoreB * arv, int num){
-    if(arv->raiz == NULL){
-        Elemento * e = malloc(sizeof(Elemento));
-        e->num = num;
-        e->direita = NULL;
-        e->esquerda = NULL;
-        arv->raiz = e;
-        return 1;
-    }
-    else {
-        Elemento * anterior = malloc(sizeof(Elemento));
-        Elemento * e = arv->raiz;
-        int menor = 0;
-        while(e != NULL) {
-            anterior = e;
-            if(num <= e->num){
-                e = e->esquerda;
-                menor = 1;
-            }
-            else {
-                e = e->direita;
-                menor = 0;
-            }
-        }
-        Elemento * novoElemento = malloc(sizeof(Elemento));
-        novoElemento->num = num;
-        novoElemento->direita = NULL;
-        novoElemento->esquerda = NULL;
-        if (menor == 0){
-            anterior->direita = novoElemento;
-        }
-        else{
-            anterior->esquerda = novoElemento;
-        }
+int Inserirr(Elemento ** raiz, char crct){
+    if (*raiz == NULL){
+        Elemento * novo_e = malloc(sizeof(Elemento));
+        novo_e->crc = crct;
+        novo_e->direita = novo_e->esquerda = NULL;
 
-    }
-
-    }
-
-int Busca(Elemento *raiz, int num){
-    if (raiz == NULL){
-        return NULL;
-    }
-    if (raiz->num == num){
-        return raiz;
-    }
-    if (num > raiz->num){
-        return  (Busca(raiz->direita, num));
+        *raiz = novo_e;
     }
     else{
-        return (Busca(raiz->esquerda, num));
+        if ((int)crct < (int)((*raiz)->crc)){
+            Inserirr(&((*raiz)->esquerda), crct);
+        }
+        else {
+        Inserirr(&((*raiz)->direita), crct);
+        }
     }
 }
 
+
+
 void imprimirArvorePre(Elemento *raiz) {
     if (raiz != NULL) {
-        printf("%d ", raiz->num);
-        imprimirArvorePre(raiz->esquerda);
+        printf("%c ", raiz->crc);
         imprimirArvorePre(raiz->direita);
+        imprimirArvorePre(raiz->esquerda);
     }
 }
 
@@ -74,7 +40,7 @@ void imprimirArvorePre(Elemento *raiz) {
 void imprimirArvoreIn(Elemento *raiz) {
     if (raiz != NULL) {
         imprimirArvoreIn(raiz->esquerda);
-        printf("%d ", raiz->num);
+        printf("%c ", raiz->crc);
         imprimirArvoreIn(raiz->direita);
     }
 }
@@ -84,17 +50,8 @@ void imprimirArvorePos(Elemento *raiz) {
     if (raiz != NULL) {
         imprimirArvorePos(raiz->esquerda);
         imprimirArvorePos(raiz->direita);
-        printf("%d ", raiz->num);
+        printf("%c ", raiz->crc);
     }
 }
 
-int count = 0;
-int Contador(Elemento *raiz) {
 
-    if (raiz != NULL) {
-        Contador(raiz->esquerda);
-        Contador(raiz->direita);
-        count++;
-    }
-
-}
