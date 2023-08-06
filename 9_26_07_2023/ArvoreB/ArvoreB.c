@@ -1,3 +1,7 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include "ArvoreB.h"
+
 void Inicializar(ArvoreB * arv){
 
     arv->raiz = NULL;
@@ -42,12 +46,29 @@ int Inserir(ArvoreB * arv, int num){
 
     }
 
-void imprimirArvore(Elemento *raiz) {
+void imprimirArvorePre(Elemento *raiz) {
     if (raiz != NULL) {
-        imprimirArvore(raiz->esquerda);
-
         printf("%d ", raiz->num);
-        imprimirArvore(raiz->direita);
+        imprimirArvorePre(raiz->esquerda);
+        imprimirArvorePre(raiz->direita);
+    }
+}
+
+
+void imprimirArvoreIn(Elemento *raiz) {
+    if (raiz != NULL) {
+        imprimirArvoreIn(raiz->esquerda);
+        printf("%d ", raiz->num);
+        imprimirArvoreIn(raiz->direita);
+    }
+}
+
+
+void imprimirArvorePos(Elemento *raiz) {
+    if (raiz != NULL) {
+        imprimirArvorePos(raiz->esquerda);
+        imprimirArvorePos(raiz->direita);
+        printf("%d ", raiz->num);
     }
 }
 

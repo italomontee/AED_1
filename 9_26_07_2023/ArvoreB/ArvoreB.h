@@ -14,7 +14,9 @@ typedef struct {
 
 void Inicializar(ArvoreB * arv);
 int Inserir(ArvoreB * arv, int num);
-void imprimirArvore(Elemento *raiz);
+void imprimirArvorePre(Elemento *raiz);
+void imprimirArvoreIn(Elemento *raiz);
+void imprimirArvorePos(Elemento *raiz);
 
 
 #endif // ARVOREB_H_INCLUDED
