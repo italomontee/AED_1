@@ -1,5 +1,5 @@
-#ifndef ARVOREB_H_INCLUDED
-#define ARVOREB_H_INCLUDED
+#ifndef 10_28_07_2023_H_INCLUDED
+#define 10_28_07_2023_H_INCLUDED
 
 typedef struct aux {
     char crc;
@@ -18,7 +18,4 @@ void imprimirArvoreIn(Elemento *raiz);
 void imprimirArvorePos(Elemento *raiz);
 
 
-
-
-
-#endif // ARVOREB_H_INCLUDED
+#endif // 10_28_07_2023_H_INCLUDED
