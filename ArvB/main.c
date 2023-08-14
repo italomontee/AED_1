@@ -1,21 +1,37 @@
+#include "arvb.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include "ArvB.h"
+
 
 int main() {
-  int val, ch;
-  BTreeNode *root = NULL;
+    int item;
 
-  insert(8, &root);
-  insert(9, &root);
-  insert(10, &root);
-  insert(11, &root);
-  insert(15, &root);
-  insert(16, &root);
+    Arvore *t = (Arvore *)malloc(sizeof(Arvore));
+    inicializarArvore(t);
+    inserir(t, 1);
+    inserir(t, 2);
+    inserir(t, 3);
+    inserir(t, 12);
+    inserir(t, 13);
+    inserir(t, 15);
+    inserir(t, 11);
+    inserir(t, 28);
+    inserir(t, 21);
+    inserir(t, 7);
+    imprimir(t->raiz);
+    printf("\n");
+    int num = 8;
+    int chave = busca(t, num);
+    if(chave == 1) printf("Valor %d encontrado.", num);
+    else printf("Valor %d nao encontrado.", num);
 
-
-  traversal(root);
-
-  printf("\n");
-  search(17, &ch, root);
+    return 0;
 }
+
+
+
+    // printf("\n %d ", i);
+
+    //delete(20, t->raiz);
+    //printf("\n");
+    //traversal(t->raiz);
