@@ -65,23 +65,33 @@ int percorrerEmLargura(NO * no) {
     if (no == NULL){
         return;
     }
-    // Criação de uma fila para armazenar os nós
-    NO* fila[1000];
-    int inicio = 0, fim = 0;
 
-    fila[fim++] = no;  // Adiciona o nó raiz à fila
+    //valores iniciais
+    NO * lista[1000];
+    int inicio = 0;
+    int fim = 0;
 
-    while (inicio < fim) {
-        NO * atual = fila[inicio++];
+    //add raiz a lista
+    lista[fim] = no;
+
+    fim++;
+
+    //looping
+
+    while (inicio < fim){
+        NO * atual = lista[inicio++];
         printf("%d ", atual->chave);
-
-        // Adiciona os filhos do nó atual à fila
-        if (atual->esquerda != NULL)
-            fila[fim++] = atual->esquerda;
-        if (atual->direita != NULL)
-            fila[fim++] = atual->direita;
+        if (atual->esquerda != NULL){
+            lista[fim++] = atual->esquerda;
+        }
+        if (atual->direita != NULL){
+            lista[fim++] = atual->direita;
+        }
     }
 }
+
+
+
 void buscar(NO * no, int numero){
     if(no->chave == numero){
         printf("\nA chave %d está na arvore");
@@ -110,11 +120,11 @@ int profundidade(NO* raiz, int codigo, int cont){
         }
     }
 
-    }
+}
 
-int count;
 
 int Contar(NO * no){
+    int count;
     if (no != NULL){
         Contar(no->esquerda);
         Contar(no->direita);
