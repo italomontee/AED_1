@@ -36,7 +36,7 @@ int main()
 
     printf("\nTotal de %d", Contar(arv->raiz, c));
 
-    printf("\no numero 5 esta na profundidade %d", Profundidade(arv->raiz, 5, 0));
+    printf("\no numero 5 esta na profundidade %d", Profundidade(arv->raiz, 21, 0));
 
     printf("\no numero 5 esta na altura %d", Altura(arv->raiz->esquerda));
 

@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "AVLchar.h"
+#include "AVLstr.h"
 
 //incializar
 void Inicializar(AVL * arvore){
@@ -13,17 +13,20 @@ int Altura(NO* raiz){
     else return (raiz->h);
 }
 
-int Profundidade(NO* raiz, char codigo,int cont){
+int Profundidade(NO* raiz, char* codigo ,int cont){
     if(raiz ==  NULL){
-            cont = 0;
-            printf("\n\nPaciente nao encontrado ou arvore sem elementos!");
-            return cont;
+        cont = -1;
+        printf("\n\nPalavra nao encontrada ou arvore sem elementos!");
+        return cont;
     }
-    if(raiz->chave == codigo){
+    printf("%s, %s", raiz->chave, codigo);
+
+
+    if(strcmp(raiz->chave, codigo) == 0){
         return cont;
     }
     else{
-        if(codigo < raiz->chave){
+        if(strncmp(raiz->chave, codigo, 1) < 0){
             cont++;
             Profundidade(raiz->esquerda, codigo, cont);
         }
@@ -63,6 +66,16 @@ int Contar(NO * no, int * count){
     }
     return (*count);
 }
+
+NO* Buscar(NO * no, char cod[]){
+    if(strncmp (no->chave, cod, 1) == 0){
+        return no;
+    }
+    Buscar(no->esquerda, cod);
+    Buscar(no->direita, cod);
+}
+
+
 
 int Maximo (int v1, int v2){
     if (v1>v2)
@@ -123,23 +136,31 @@ int fatorBalanceamento(NO* no) {
 }
 
 //inserir
-NO* inserir(NO* no, char dado) {
+NO* inserir(NO* no, char dado[]) {
     // Realiza a inserção como em uma árvore binária de busca
     if (no == NULL) {
         NO* novoNo = (NO*)malloc(sizeof(NO));
-        novoNo->chave = dado;
+        strcpy(novoNo->chave, dado);
         novoNo->esquerda = NULL;
         novoNo->direita = NULL;
         novoNo->h = 1;
         return novoNo;
     }
 
-    if (dado < no->chave)
+    int comp = strncmp(dado, no->chave, 1);
+
+    if (comp < 0){
         no->esquerda = inserir(no->esquerda, dado);
-    else if (dado > no->chave)
+    }
+
+    else if (comp > 0){
         no->direita = inserir(no->direita, dado);
-    else
+    }
+
+    else{
         return no; // Duplicatas não são permitidas
+    }
+
 
     // Atualiza a altura deste nó
     atualizaAltura(no);
@@ -149,21 +170,21 @@ NO* inserir(NO* no, char dado) {
 
     // Verifica se o nó ficou desbalanceado
     // Rotação simples à direita
-    if (balanceamento > 1 && dado < no->esquerda->chave)
+    if (balanceamento > 1 && dado[0] < no->esquerda->chave[0])
         return rot_direita(no);
 
     // Rotação simples à esquerda
-    if (balanceamento < -1 && dado > no->direita->chave)
+    if (balanceamento < -1 && dado[0] > no->direita->chave[0])
         return rot_esquerda(no);
 
     // Rotação dupla à esquerda-direita
-    if (balanceamento > 1 && dado > no->esquerda->chave) {
+    if (balanceamento > 1 && dado[0] > no->esquerda->chave[0]) {
         no->esquerda = rot_esquerda(no->esquerda);
         return rot_direita(no);
     }
 
     // Rotação dupla à direita-esquerda
-    if (balanceamento < -1 && dado < no->direita->chave) {
+    if (balanceamento < -1 && dado[0] < no->direita->chave[0]) {
         no->direita = rot_direita(no->direita);
         return rot_esquerda(no);
     }
@@ -177,7 +198,7 @@ void ImprimirInOrder(NO* raiz){
    // no da esquerda, raiz, no da esquerda
     if (raiz != NULL){
         ImprimirInOrder(raiz->esquerda);
-        printf("%c ", raiz->chave);
+        printf("%s ", raiz->chave);
         ImprimirInOrder(raiz->direita);
     }
 }
@@ -185,7 +206,7 @@ void ImprimirInOrder(NO* raiz){
 void ImprimirPreOrder(NO* raiz){
     // raiz,  no da esquerda, no da direita
     if (raiz != NULL){
-        printf("%c ", raiz->chave);
+        printf("%s ", raiz->chave);
         ImprimirPreOrder(raiz->esquerda);
         ImprimirPreOrder(raiz->direita);
 
@@ -197,7 +218,7 @@ void ImprimirPosOrder(NO* raiz){
     if (raiz != NULL){
         ImprimirPosOrder(raiz->esquerda);
         ImprimirPosOrder(raiz->direita);
-        printf("%c ", raiz->chave);
+        printf("%s ", raiz->chave);
 
     }
 }
@@ -221,7 +242,7 @@ int PercorrerEmLargura(NO* raiz){
 
         while (inicio < fim){
             NO * atual = lista[inicio++];
-            printf("%c ", atual->chave);
+            printf("%s ", atual->chave);
             if (atual->esquerda != NULL){
                 lista[fim++] = atual->esquerda;
             }
@@ -233,13 +254,5 @@ int PercorrerEmLargura(NO* raiz){
 
 
 //buscar
-void Buscar(NO * no, char cod){
-    if(no->chave == cod){
-        printf("\nA chave %c esta na arvore");
-    }
-    Buscar(no->esquerda, cod);
-    Buscar(no->direita, cod);
-}
-
 
 
