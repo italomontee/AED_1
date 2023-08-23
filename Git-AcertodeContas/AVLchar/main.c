@@ -25,6 +25,7 @@ int main()
     printf("\n");
     ImprimirPosOrder(arv->raiz);
     printf("\n");
+    PercorrerEmLargura(arv->raiz);
 
     int  c=0;
 

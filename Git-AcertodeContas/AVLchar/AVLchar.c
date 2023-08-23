@@ -210,6 +210,35 @@ void ImprimirPosOrder(NO* raiz){
     }
 }
 
+int PercorrerEmLargura(NO* raiz){
+    if (raiz == NULL){
+            return;
+        }
+
+        //valores iniciais
+        NO * lista[1000];
+        int inicio = 0;
+        int fim = 0;
+
+        //add raiz a lista
+        lista[fim] = raiz;
+
+        fim++;
+
+        //looping
+
+        while (inicio < fim){
+            NO * atual = lista[inicio++];
+            printf("%c ", atual->chave);
+            if (atual->esquerda != NULL){
+                lista[fim++] = atual->esquerda;
+            }
+            if (atual->direita != NULL){
+                lista[fim++] = atual->direita;
+            }
+        }
+}
+
 
 //buscar
 void Buscar(NO * no, char cod){
