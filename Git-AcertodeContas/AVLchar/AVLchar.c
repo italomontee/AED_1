@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "AVLint.h"
+#include "AVLchar.h"
 
 //incializar
 void Inicializar(AVL * arvore){
@@ -13,7 +13,7 @@ int Altura(NO* raiz){
     else return (raiz->h);
 }
 
-int Profundidade(NO* raiz, int codigo,int cont){
+int Profundidade(NO* raiz, char codigo,int cont){
     if(raiz ==  NULL){
             cont = 0;
             printf("\n\nPaciente nao encontrado ou arvore sem elementos!");
@@ -34,7 +34,7 @@ int Profundidade(NO* raiz, int codigo,int cont){
     }
 }
 
-int Nivel(NO* raiz, int codigo,int cont){
+int Nivel(NO* raiz, char codigo,int cont){
     if(raiz ==  NULL){
             cont = 0;
             printf("\n\nPaciente nao encontrado ou arvore sem elementos!");
@@ -73,8 +73,8 @@ int Maximo (int v1, int v2){
 
 //rotações
 NO* rot_direita(NO* NO_desb){
-    NO* aux;
-    aux=NO_desb->esquerda;
+
+    NO* aux = NO_desb->esquerda;
     NO_desb->esquerda = aux->direita;
     aux->direita = NO_desb;
 
@@ -84,7 +84,6 @@ NO* rot_direita(NO* NO_desb){
 
     return (aux);
 }
-
 NO* rot_esquerda(NO* NO_desb){
 
     NO* aux;
@@ -102,10 +101,20 @@ NO* rot_dir_esquerda(NO* NO_desb){
     NO_desb->direita = rot_direita(NO_desb->direita);
     return (rot_esquerda(NO_desb));
 }
-
 NO* rot_esq_direita(NO* NO_desb){
     NO_desb->esquerda = rot_esquerda(NO_desb->esquerda);
     return (rot_direita(NO_desb));
+}
+
+//inserir
+NO * AlocarNo(char codigo){
+    //alocar memoria para receber o numero
+    NO * novoNo = malloc(sizeof(NO));
+    novoNo->chave = codigo;
+    novoNo->direita = NULL;
+    novoNo->esquerda = NULL;
+
+    return novoNo;
 }
 
 // Função para atualizar a altura de um nó com base na altura das subárvores
@@ -122,7 +131,7 @@ int fatorBalanceamento(NO* no) {
 }
 
 //inserir
-NO* inserir(NO* no, int dado) {
+NO* inserir(NO* no, char dado) {
     // Realiza a inserção como em uma árvore binária de busca
     if (no == NULL) {
         NO* novoNo = (NO*)malloc(sizeof(NO));
@@ -176,7 +185,7 @@ void ImprimirInOrder(NO* raiz){
    // no da esquerda, raiz, no da esquerda
     if (raiz != NULL){
         ImprimirInOrder(raiz->esquerda);
-        printf("%d ", raiz->chave);
+        printf("%c ", raiz->chave);
         ImprimirInOrder(raiz->direita);
     }
 }
@@ -184,7 +193,7 @@ void ImprimirInOrder(NO* raiz){
 void ImprimirPreOrder(NO* raiz){
     // raiz,  no da esquerda, no da direita
     if (raiz != NULL){
-        printf("%d ", raiz->chave);
+        printf("%c ", raiz->chave);
         ImprimirPreOrder(raiz->esquerda);
         ImprimirPreOrder(raiz->direita);
 
@@ -196,18 +205,16 @@ void ImprimirPosOrder(NO* raiz){
     if (raiz != NULL){
         ImprimirPosOrder(raiz->esquerda);
         ImprimirPosOrder(raiz->direita);
-        printf("%d ", raiz->chave);
+        printf("%c ", raiz->chave);
 
     }
 }
 
-int PercorrerEmLargura(NO* raiz){
-}
 
 //buscar
-void Buscar(NO * no, int cod){
+void Buscar(NO * no, char cod){
     if(no->chave == cod){
-        printf("\nA chave %d esta na arvore");
+        printf("\nA chave %c esta na arvore");
     }
     Buscar(no->esquerda, cod);
     Buscar(no->direita, cod);

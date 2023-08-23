@@ -1,8 +1,8 @@
-#ifndef AVLINT_H_INCLUDED
-#define AVLINT_H_INCLUDED
+#ifndef AVLCHAR_H_INCLUDED
+#define AVLCHAR_H_INCLUDED
 
 typedef struct aux {
-    int chave;
+    char chave;
     int h;
     struct aux * esquerda;
     struct aux * direita;
@@ -17,8 +17,8 @@ void Inicializar(AVL * arvore);
 
 //medidas
 int Altura(NO* raiz);
-int Profundidade(NO* raiz, int codigo, int cont);
-int Nivel(NO* raiz, int codigo, int cont);
+int Profundidade(NO* raiz, char codigo, int cont);
+int Nivel(NO* raiz, char codigo, int cont);
 int Contar(NO* raiz, int * count);
 int maximo (int v1, int v2);
 
@@ -31,7 +31,8 @@ NO* rot_esq_direita(NO* NO_desb);
 //inserir
 void atualizaAltura(NO* no);
 int fatorBalanceamento(NO* no);
-NO* inserir(NO* no, int dado);
+NO* inserir(NO* no, char dado);
+
 //imprimir
 void ImprimirInOrder(NO* raiz);
 void ImprimirPreOrder(NO* raiz);
@@ -39,6 +40,8 @@ void ImprimirPosOrder(NO* raiz);
 int PercorrerEmLargura(NO* raiz);
 
 //buscar
-void Buscar(NO * no, int cod);
+void Buscar(NO * no, char cod);
 
-#endif // AVLINT_H_INCLUDED
+
+
+#endif // AVLCHAR_H_INCLUDED

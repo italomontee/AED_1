@@ -9,15 +9,20 @@ int main()
     AVL *arv = malloc(sizeof(AVL));
     Inicializar(arv);
 
-    arv->raiz = InserirAVL(arv->raiz, 9);
-    arv->raiz = InserirAVL(arv->raiz, 5);
-    arv->raiz = InserirAVL(arv->raiz, 14);
-    arv->raiz = InserirAVL(arv->raiz, 3);
-    arv->raiz = InserirAVL(arv->raiz, 6);
-    arv->raiz = InserirAVL(arv->raiz, 12);
-    arv->raiz = InserirAVL(arv->raiz, 15);
-    arv->raiz = InserirAVL(arv->raiz, 7);
-    arv->raiz = InserirAVL(arv->raiz, 10);
+    arv->raiz = inserir(arv->raiz, 9);
+    arv->raiz = inserir(arv->raiz, 5);
+    arv->raiz = inserir(arv->raiz, 14);
+    arv->raiz = inserir(arv->raiz, 3);
+    arv->raiz = inserir(arv->raiz, 6);
+    arv->raiz = inserir(arv->raiz, 12);
+    arv->raiz = inserir(arv->raiz, 15);
+    arv->raiz = inserir(arv->raiz, 7);
+    arv->raiz = inserir(arv->raiz, 10);
+    arv->raiz = inserir(arv->raiz, 13);
+    arv->raiz = inserir(arv->raiz, 16);
+    arv->raiz = inserir(arv->raiz, 18);
+    arv->raiz = inserir(arv->raiz, 21);
+    arv->raiz = inserir(arv->raiz, 22);
 
     ImprimirInOrder(arv->raiz);
     printf("\n");
